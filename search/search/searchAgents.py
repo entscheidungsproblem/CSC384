@@ -499,6 +499,47 @@ def foodHeuristic(state, problem):
         maximum_distance = max(maximum_distance, manhattan_distance)
     return maximum_distance
 
+
+def foodHeuristic2(state, problem):
+	position, foodGrid = state
+	food = foodGrid.asList()
+
+	path = []
+	current = position
+	while len(food) != 0:
+		node = closestFood(current, food, problem)
+		x = food.pop(node)
+		path.append(x)
+
+
+	#mazeDistance(point1, point2, gameState
+	#print(path, position)
+	#print problem
+	cost = mazeDistance(position, path[0], problem.startingGameState)
+	for x in range(1, len(path)):
+		cost += mazeDistance(path[x-1], path[x], problem.startingGameState)
+	#print(path, cost)	
+	return cost
+
+
+def closestFood(position, food, problem):
+	if len(food) == 0:
+		return position
+	#print(position, food)
+	minimum = mazeDistance(position, food[0], problem.startingGameState)
+	closest = 0
+	if minimum == 1:
+		return closest
+	for f in range(1, len(food)):
+		possible = mazeDistance(position, food[f], problem.startingGameState)
+		if possible < minimum:
+			minimum = possible
+			closest = f
+			if minimum == 1:
+				return closest
+	return closest
+
+
 #######################################################
 # This portion is not required in A1.pdf              #
 #######################################################
