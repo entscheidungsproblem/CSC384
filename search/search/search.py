@@ -4,7 +4,7 @@
 # educational purposes provided that (1) you do not distribute or publish
 # solutions, (2) you retain this notice, and (3) you provide clear
 # attribution to UC Berkeley, including a link to http://ai.berkeley.edu.
-# 
+#
 # Attribution Information: The Pacman AI projects were developed at UC Berkeley.
 # The core projects and autograders were primarily created by John DeNero
 # (denero@cs.berkeley.edu) and Dan Klein (klein@cs.berkeley.edu).
@@ -215,8 +215,6 @@ def uniformCostSearch(problem):
             # for each child in the list, if the present location is not in visited nodes then push it into the set
             for i in list_children:
                 if i[0] not in visited_nodes:
-                    if problem.isGoalState(i[0]):
-                        return present_path + [i[1]]
                     # push the present child into the set of nodes, update the path to include the present course
                     curr_node = (i, present_path + [i[1]], present_cost + i[2])
                     open_set.push(curr_node, present_cost + i[2])
@@ -255,16 +253,16 @@ def aStarSearch(problem, heuristic=nullHeuristic):
 
         if present_location not in visited_nodes:
             present_path = present [3]
-
             visited_nodes.append(present_location)
+
+            if problem.isGoalState(present_location):
+                print ("goal found")
+                return present_path
 
             list_children = problem.getSuccessors(present_location)
 
             for i in list_children:
                 if i[0] not in visited_nodes:
-                    if problem.isGoalState(i[0]):
-                        return present_path + [i[1]]
-
                     # Update the functions for each successor
                     m = heuristic(i[0], problem)
                     n = present_cost + i[2]
