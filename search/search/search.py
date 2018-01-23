@@ -196,36 +196,27 @@ def uniformCostSearch(problem):
     while not open_set.isEmpty():
         # We remove the top node (node we are currently at)
         present = open_set.pop()
-
         # We break up the node into its component parts
-
         # present location is where pacman currently is
         present_location = present[0][0]
-
         # this path is the path that the AI currently has to try and solve the goal
         present_path = present[1]
-
         # This is new, the cost that will be sorted by the PriorityQueue
         present_cost = present[2]
-
         # We check if the present location has been visited before, if not we append it into visited locations
         if present_location not in visited_nodes:
             visited_nodes.append(present_location)
-
             # Check if the current node fulfilled the goal/objective. if so, return the path for the agent
             if problem.isGoalState(present_location):
                 return present_path
-
             # Create a list of all children of the current node
             children = problem.getSuccessors(present_location)
             list_children = list(children)
-
             # for each child in the list, if the present location is not in visited nodes then push it into the set
             for i in list_children:
                 if i[0] not in visited_nodes:
                     if problem.isGoalState(i[0]):
                         return present_path + [i[1]]
-
                     # push the present child into the set of nodes, update the path to include the present course
                     curr_node = (i, present_path + [i[1]], present_cost + i[2])
                     open_set.push(curr_node, present_cost + i[2])
@@ -247,7 +238,7 @@ def aStarSearch(problem, heuristic=nullHeuristic):
     # The next three lines are the functions I am defining for the A* search problem
     m = heuristic(problem.getStartState(),problem)
 
-    n = 0
+    n = nullHeuristic(None)
 
     p = m + n
 
@@ -267,8 +258,7 @@ def aStarSearch(problem, heuristic=nullHeuristic):
 
             visited_nodes.append(present_location)
 
-            children = problem.getSuccessors(present_location)
-            list_children = list(children)
+            list_children = problem.getSuccessors(present_location)
 
             for i in list_children:
                 if i[0] not in visited_nodes:

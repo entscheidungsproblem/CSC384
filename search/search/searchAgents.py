@@ -307,7 +307,7 @@ class CornersProblem(search.SearchProblem):
         """
         present_location = state[0]
         corner_list = state[1]
-        sorted_corner_list = sorted((corner_list))
+        sorted_corner_list = sorted(corner_list)
         if present_location in self.corners:
             if not present_location in sorted_corner_list:
                 sorted_corner_list.append(present_location)

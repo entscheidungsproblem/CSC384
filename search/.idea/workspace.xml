@@ -14,16 +14,89 @@
       <file leaf-file-name="search.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/search/search.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="16" column="35" lean-forward="false" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
+            <state relative-caret-position="21">
+              <caret line="184" column="0" lean-forward="true" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
               <folding>
                 <element signature="e#812#2063#0" expanded="false" />
                 <element signature="e#2099#2379#0" expanded="false" />
-                <element signature="e#4612#6477#0" expanded="false" />
-                <element signature="e#6515#8657#0" expanded="false" />
-                <element signature="e#8703#8877#0" expanded="false" />
-                <element signature="e#8934#10219#0" expanded="false" />
+                <element signature="e#2416#4573#0" expanded="false" />
+                <element signature="e#8694#8868#0" expanded="false" />
+                <element signature="e#8925#10190#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="searchAgents.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/search/searchAgents.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="495">
+              <caret line="346" column="52" lean-forward="false" selection-start-line="346" selection-start-column="52" selection-end-line="346" selection-end-column="52" />
+              <folding>
+                <element signature="n#!!doc" expanded="false" />
+                <element signature="e#662#1352#1" expanded="false" />
+                <element signature="e#1499#1783#0" expanded="false" />
+                <element signature="e#8958#9379#0" expanded="false" />
+                <element signature="e#9425#9822#0" expanded="false" />
+                <element signature="e#9880#10039#0" expanded="false" />
+                <element signature="e#10097#10271#0" expanded="false" />
+                <element signature="e#15802#16022#0" expanded="false" />
+                <element signature="e#16053#18114#0" expanded="false" />
+                <element signature="e#18161#18381#0" expanded="false" />
+                <element signature="e#20019#21275#0" expanded="false" />
+                <element signature="e#21332#22588#0" expanded="false" />
+                <element signature="e#22639#23318#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="autograder.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/search/autograder.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="util.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/search/util.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4347">
+              <caret line="210" column="40" lean-forward="false" selection-start-line="210" selection-start-column="40" selection-end-line="210" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pacman.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/search/pacman.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1022">
+              <caret line="182" column="57" lean-forward="false" selection-start-line="182" selection-start-column="56" selection-end-line="182" selection-end-column="57" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="game.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/search/game.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="6" column="2" lean-forward="false" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="commands.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/search/commands.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="19" column="34" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="56" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -33,6 +106,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>sys</find>
+      <find>heur</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -40,14 +114,14 @@
       <list>
         <option value="$PROJECT_DIR$/search/eightpuzzle.py" />
         <option value="$PROJECT_DIR$/search/commands.txt" />
-        <option value="$PROJECT_DIR$/search/search.py" />
         <option value="$PROJECT_DIR$/search/searchAgents.py" />
+        <option value="$PROJECT_DIR$/search/search.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="260" />
-    <option name="y" value="20" />
+    <option name="x" value="281" />
+    <option name="y" value="45" />
     <option name="width" value="1400" />
     <option name="height" value="990" />
   </component>
@@ -97,12 +171,25 @@
               <item name="search" type="462c0819:PsiDirectoryNode" />
               <item name="search" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="search" type="b2602c69:ProjectViewProjectNode" />
+              <item name="search" type="462c0819:PsiDirectoryNode" />
+              <item name="search" type="462c0819:PsiDirectoryNode" />
+              <item name="test_cases" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="search" type="b2602c69:ProjectViewProjectNode" />
+              <item name="search" type="462c0819:PsiDirectoryNode" />
+              <item name="search" type="462c0819:PsiDirectoryNode" />
+              <item name="test_cases" type="462c0819:PsiDirectoryNode" />
+              <item name="q3" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -121,7 +208,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.autograder">
+  <component name="RunManager" selected="Python.pacman">
     <configuration name="autograder" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -135,7 +222,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="search" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/search/autograder.py" />
-      <option name="PARAMETERS" value="" />
+      <option name="PARAMETERS" value="-l trickySearch -p AStarFoodSearchAgent" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -189,7 +276,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="search" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/search/pacman.py" />
-      <option name="PARAMETERS" value="-l mediumDottedMaze -p StayEastSearchAgent" />
+      <option name="PARAMETERS" value="-l trickySearch -p AStarFoodSearchAgent" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -221,8 +308,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.autograder" />
-        <item index="1" class="java.lang.String" itemvalue="Python.pacman" />
+        <item index="0" class="java.lang.String" itemvalue="Python.pacman" />
+        <item index="1" class="java.lang.String" itemvalue="Python.autograder" />
         <item index="2" class="java.lang.String" itemvalue="Python.eightpuzzle" />
         <item index="3" class="java.lang.String" itemvalue="Python.testParser" />
         <item index="4" class="java.lang.String" itemvalue="Python.game" />
@@ -247,18 +334,17 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14583333" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20572917" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.50208336" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -273,26 +359,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/search/search.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#812#2063#0" expanded="false" />
-            <element signature="e#2099#2379#0" expanded="false" />
-            <element signature="e#4612#6477#0" expanded="false" />
-            <element signature="e#6515#8657#0" expanded="false" />
-            <element signature="e#8703#8877#0" expanded="false" />
-            <element signature="e#8934#10219#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/search/searchAgents.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -301,20 +372,16 @@
             <element signature="n#!!doc" expanded="false" />
             <element signature="e#662#1352#1" expanded="false" />
             <element signature="e#1499#1783#0" expanded="false" />
-            <element signature="e#2040#5354#0" expanded="false" />
-            <element signature="e#5411#8912#0" expanded="false" />
             <element signature="e#8958#9379#0" expanded="false" />
             <element signature="e#9425#9822#0" expanded="false" />
             <element signature="e#9880#10039#0" expanded="false" />
             <element signature="e#10097#10271#0" expanded="false" />
-            <element signature="e#10484#14412#0" expanded="false" />
-            <element signature="e#14457#15759#0" expanded="false" />
-            <element signature="e#15804#16024#0" expanded="false" />
-            <element signature="e#16055#18116#0" expanded="false" />
-            <element signature="e#18163#18383#0" expanded="false" />
-            <element signature="e#20021#21277#0" expanded="false" />
-            <element signature="e#21334#22590#0" expanded="false" />
-            <element signature="e#22641#23320#0" expanded="false" />
+            <element signature="e#15802#16022#0" expanded="false" />
+            <element signature="e#16053#18114#0" expanded="false" />
+            <element signature="e#18161#18381#0" expanded="false" />
+            <element signature="e#20019#21275#0" expanded="false" />
+            <element signature="e#21332#22588#0" expanded="false" />
+            <element signature="e#22639#23318#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -361,10 +428,9 @@
           <folding>
             <element signature="e#812#2063#0" expanded="false" />
             <element signature="e#2099#2379#0" expanded="false" />
-            <element signature="e#4612#6477#0" expanded="false" />
-            <element signature="e#6515#8657#0" expanded="false" />
-            <element signature="e#8703#8877#0" expanded="false" />
-            <element signature="e#8934#10219#0" expanded="false" />
+            <element signature="e#2416#4573#0" expanded="false" />
+            <element signature="e#8694#8868#0" expanded="false" />
+            <element signature="e#8925#10190#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -377,20 +443,16 @@
             <element signature="n#!!doc" expanded="false" />
             <element signature="e#662#1352#1" expanded="false" />
             <element signature="e#1499#1783#0" expanded="false" />
-            <element signature="e#2040#5354#0" expanded="false" />
-            <element signature="e#5411#8912#0" expanded="false" />
             <element signature="e#8958#9379#0" expanded="false" />
             <element signature="e#9425#9822#0" expanded="false" />
             <element signature="e#9880#10039#0" expanded="false" />
             <element signature="e#10097#10271#0" expanded="false" />
-            <element signature="e#10484#14412#0" expanded="false" />
-            <element signature="e#14457#15759#0" expanded="false" />
-            <element signature="e#15804#16024#0" expanded="false" />
-            <element signature="e#16055#18116#0" expanded="false" />
-            <element signature="e#18163#18383#0" expanded="false" />
-            <element signature="e#20021#21277#0" expanded="false" />
-            <element signature="e#21334#22590#0" expanded="false" />
-            <element signature="e#22641#23320#0" expanded="false" />
+            <element signature="e#15802#16022#0" expanded="false" />
+            <element signature="e#16053#18114#0" expanded="false" />
+            <element signature="e#18161#18381#0" expanded="false" />
+            <element signature="e#20019#21275#0" expanded="false" />
+            <element signature="e#21332#22588#0" expanded="false" />
+            <element signature="e#22639#23318#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -430,10 +492,9 @@
           <folding>
             <element signature="e#812#2063#0" expanded="false" />
             <element signature="e#2099#2379#0" expanded="false" />
-            <element signature="e#4612#6477#0" expanded="false" />
-            <element signature="e#6515#8657#0" expanded="false" />
-            <element signature="e#8703#8877#0" expanded="false" />
-            <element signature="e#8934#10219#0" expanded="false" />
+            <element signature="e#2416#4573#0" expanded="false" />
+            <element signature="e#8694#8868#0" expanded="false" />
+            <element signature="e#8925#10190#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -446,20 +507,16 @@
             <element signature="n#!!doc" expanded="false" />
             <element signature="e#662#1352#1" expanded="false" />
             <element signature="e#1499#1783#0" expanded="false" />
-            <element signature="e#2040#5354#0" expanded="false" />
-            <element signature="e#5411#8912#0" expanded="false" />
             <element signature="e#8958#9379#0" expanded="false" />
             <element signature="e#9425#9822#0" expanded="false" />
             <element signature="e#9880#10039#0" expanded="false" />
             <element signature="e#10097#10271#0" expanded="false" />
-            <element signature="e#10484#14412#0" expanded="false" />
-            <element signature="e#14457#15759#0" expanded="false" />
-            <element signature="e#15804#16024#0" expanded="false" />
-            <element signature="e#16055#18116#0" expanded="false" />
-            <element signature="e#18163#18383#0" expanded="false" />
-            <element signature="e#20021#21277#0" expanded="false" />
-            <element signature="e#21334#22590#0" expanded="false" />
-            <element signature="e#22641#23320#0" expanded="false" />
+            <element signature="e#15802#16022#0" expanded="false" />
+            <element signature="e#16053#18114#0" expanded="false" />
+            <element signature="e#18161#18381#0" expanded="false" />
+            <element signature="e#20019#21275#0" expanded="false" />
+            <element signature="e#21332#22588#0" expanded="false" />
+            <element signature="e#22639#23318#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -499,10 +556,9 @@
           <folding>
             <element signature="e#812#2063#0" expanded="false" />
             <element signature="e#2099#2379#0" expanded="false" />
-            <element signature="e#4612#6477#0" expanded="false" />
-            <element signature="e#6515#8657#0" expanded="false" />
-            <element signature="e#8703#8877#0" expanded="false" />
-            <element signature="e#8934#10219#0" expanded="false" />
+            <element signature="e#2416#4573#0" expanded="false" />
+            <element signature="e#8694#8868#0" expanded="false" />
+            <element signature="e#8925#10190#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -543,20 +599,16 @@
             <element signature="n#!!doc" expanded="false" />
             <element signature="e#662#1352#1" expanded="false" />
             <element signature="e#1499#1783#0" expanded="false" />
-            <element signature="e#2040#5354#0" expanded="false" />
-            <element signature="e#5411#8912#0" expanded="false" />
             <element signature="e#8958#9379#0" expanded="false" />
             <element signature="e#9425#9822#0" expanded="false" />
             <element signature="e#9880#10039#0" expanded="false" />
             <element signature="e#10097#10271#0" expanded="false" />
-            <element signature="e#10484#14412#0" expanded="false" />
-            <element signature="e#14457#15759#0" expanded="false" />
-            <element signature="e#15804#16024#0" expanded="false" />
-            <element signature="e#16055#18116#0" expanded="false" />
-            <element signature="e#18163#18383#0" expanded="false" />
-            <element signature="e#20021#21277#0" expanded="false" />
-            <element signature="e#21334#22590#0" expanded="false" />
-            <element signature="e#22641#23320#0" expanded="false" />
+            <element signature="e#15802#16022#0" expanded="false" />
+            <element signature="e#16053#18114#0" expanded="false" />
+            <element signature="e#18161#18381#0" expanded="false" />
+            <element signature="e#20019#21275#0" expanded="false" />
+            <element signature="e#21332#22588#0" expanded="false" />
+            <element signature="e#22639#23318#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -575,38 +627,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/search/game.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="55" lean-forward="false" selection-start-line="4" selection-start-column="53" selection-end-line="4" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/search/eightpuzzle.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
           <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/search/autograder.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/search/test_cases/q3/CONFIG">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/search/test_cases/q3/graph_backtrack.solution">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -680,20 +704,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/search/pacman.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3633">
-          <caret line="180" column="59" lean-forward="false" selection-start-line="180" selection-start-column="59" selection-end-line="180" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/search/util.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4347">
-          <caret line="210" column="33" lean-forward="false" selection-start-line="210" selection-start-column="33" selection-end-line="210" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/search/submission_autograder.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -722,51 +732,102 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/search/game.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="2" lean-forward="false" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/search/util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4347">
+          <caret line="210" column="40" lean-forward="false" selection-start-line="210" selection-start-column="40" selection-end-line="210" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/search/commands.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="56" />
+          <caret line="19" column="34" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/search/pacman.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1022">
+          <caret line="182" column="57" lean-forward="false" selection-start-line="182" selection-start-column="56" selection-end-line="182" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/search/autograder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/search/searchAgents.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="805">
-          <caret line="497" column="24" lean-forward="false" selection-start-line="497" selection-start-column="24" selection-end-line="497" selection-end-column="24" />
+        <state relative-caret-position="495">
+          <caret line="346" column="52" lean-forward="false" selection-start-line="346" selection-start-column="52" selection-end-line="346" selection-end-column="52" />
           <folding>
             <element signature="n#!!doc" expanded="false" />
             <element signature="e#662#1352#1" expanded="false" />
             <element signature="e#1499#1783#0" expanded="false" />
-            <element signature="e#2040#5354#0" expanded="false" />
-            <element signature="e#5411#8912#0" expanded="false" />
             <element signature="e#8958#9379#0" expanded="false" />
             <element signature="e#9425#9822#0" expanded="false" />
             <element signature="e#9880#10039#0" expanded="false" />
             <element signature="e#10097#10271#0" expanded="false" />
-            <element signature="e#10484#14412#0" expanded="false" />
-            <element signature="e#14457#15759#0" expanded="false" />
-            <element signature="e#15804#16024#0" expanded="false" />
-            <element signature="e#16055#18116#0" expanded="false" />
-            <element signature="e#18163#18383#0" expanded="false" />
-            <element signature="e#20021#21277#0" expanded="false" />
-            <element signature="e#21334#22590#0" expanded="false" />
-            <element signature="e#22641#23320#0" expanded="false" />
+            <element signature="e#15802#16022#0" expanded="false" />
+            <element signature="e#16053#18114#0" expanded="false" />
+            <element signature="e#18161#18381#0" expanded="false" />
+            <element signature="e#20019#21275#0" expanded="false" />
+            <element signature="e#21332#22588#0" expanded="false" />
+            <element signature="e#22639#23318#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/search/test_cases/q3/CONFIG">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/search/test_cases/q3/graph_backtrack.test">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/search/test_cases/q3/graph_backtrack.solution">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/search/search.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="16" column="35" lean-forward="false" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
+        <state relative-caret-position="21">
+          <caret line="184" column="0" lean-forward="true" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
           <folding>
             <element signature="e#812#2063#0" expanded="false" />
             <element signature="e#2099#2379#0" expanded="false" />
-            <element signature="e#4612#6477#0" expanded="false" />
-            <element signature="e#6515#8657#0" expanded="false" />
-            <element signature="e#8703#8877#0" expanded="false" />
-            <element signature="e#8934#10219#0" expanded="false" />
+            <element signature="e#2416#4573#0" expanded="false" />
+            <element signature="e#8694#8868#0" expanded="false" />
+            <element signature="e#8925#10190#0" expanded="false" />
           </folding>
         </state>
       </provider>
