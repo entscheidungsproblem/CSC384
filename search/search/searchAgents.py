@@ -378,8 +378,8 @@ def cornersHeuristic(state, problem):
     shortest path from the state to a goal of the problem; i.e., it should be
     admissible.
     """
-    corners = problem.corners  # These are the corner coordinates
-    walls = problem.walls  # These are the walls of the maze, as a Grid (game.py)
+    corners = problem.corners # These are the corner coordinates
+    walls = problem.walls # These are the walls of the maze, as a Grid (game.py)
     present_location = state[0]
     sorted_corners = sorted(state[1])
     required_corners = []
@@ -387,17 +387,17 @@ def cornersHeuristic(state, problem):
         if i not in sorted_corners:
             required_corners.append(i)
 
-    if not required_corners:
+    if len(required_corners) >= 1:
+        maximum_distance = util.manhattanDistance(present_location, required_corners[0])
+    else:
         return 0
 
-    minimum_distance = 999
+    for i in required_corners[1:]:
+        if i in corners:
+            present_distance = util.manhattanDistance(present_location, i)
+            maximum_distance = max(maximum_distance, present_distance)
+    return maximum_distance
 
-    for i in required_corners:
-        present_distance = util.manhattanDistance(i, present_location)
-        required_corners.remove(i)
-        sorted_corners.append(i)
-        minimum_distance = min(minimum_distance, present_distance)
-    return minimum_distance
 
 
 class AStarCornersAgent(SearchAgent):
