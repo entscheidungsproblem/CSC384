@@ -462,7 +462,7 @@ class AStarFoodSearchAgent(SearchAgent):
         self.searchFunction = lambda prob: search.aStarSearch(prob, foodHeuristic)
         self.searchType = FoodSearchProblem
 
-def foodHeuristic(state, problem):
+def foodHeuristic2(state, problem):
     """Your heuristic for the FoodSearchProblem goes here.
 
     This heuristic must be admissible to ensure correctness.
@@ -497,20 +497,20 @@ def foodHeuristic(state, problem):
     return maximum_distance
 
 
-def foodHeuristic2(state, problem):
+def foodHeuristic(state, problem):
     # Triangle
     position, foodGrid = state
     food = foodGrid.asList()
     if len(food) == 0:
         return 0
     elif len(food) == 1:
-        return util.manhattanDistance(food[0], position)
+        return mazeDistance(food[0], position, problem.startingGameState)
 
     # Point 1
     p1 = position
     p1_distance = []
     for i in range(len(food)):
-        p1_distance.append((util.manhattanDistance(food[i], p1), i))
+        p1_distance.append((mazeDistance(food[i], p1, problem.startingGameState), i))
 
     p1_distance.sort()
 
@@ -518,15 +518,17 @@ def foodHeuristic2(state, problem):
     p2 = food[p1_distance[-1][1]]
     p2_distance = []
     for i in range(len(food)):
-        p2_distance.append((util.manhattanDistance(food[i], p2), i))
+        p2_distance.append((mazeDistance(food[i], p2, problem.startingGameState), i))
 
     p2_distance.sort()
 
+    size = 1 
+    c = common(p1_distance, p2_distance, size) 
     # Point 3
-    p3 = food[common(p1_distance, p2_distance)]
+    p3 = food[c[0]]
 
-    length = [util.manhattanDistance(p1, p2), util.manhattanDistance(p2, p3), 
-                util.manhattanDistance(p3, p1)]
+    length = [mazeDistance(p1, p2, problem.startingGameState), mazeDistance(p2, p3, problem.startingGameState), 
+                mazeDistance(p3, p1, problem.startingGameState)]
     # length.sort()
 
     # return length[0]+length[1]
@@ -534,20 +536,25 @@ def foodHeuristic2(state, problem):
     return min( length[0]+length[1],
                 length[2]+length[1],
                 length[2]+length[0],
-            )
+    )
 
-
-def common(distance1, distance2):
+def common(distance1, distance2, num=1):
     visited1 = set()
     visited2 = set()
+    c = []
 
     for i in range(len(distance1)):
         if distance1[i][1] in visited2:
-            return distance1[i][1]
-        if distance2[i][1] in visited1:
-            return distance2[i][1]
+            c.append(distance1[i][1])
+            if len(c) == num:
+                return c
+        if distance2[i][1] in visited1 or distance1[i][1] == distance2[i][1]:
+            c.append(distance2[i][1])
+            if len(c) == num:
+                return c
         visited1.add(distance1[i][1])
         visited2.add(distance2[i][1])
+    return c
 
     
 
