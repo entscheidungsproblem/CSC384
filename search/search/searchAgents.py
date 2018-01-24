@@ -498,26 +498,58 @@ def foodHeuristic(state, problem):
 
 
 def foodHeuristic2(state, problem):
-	position, foodGrid = state
-	food = foodGrid.asList()
+    # Triangle
+    position, foodGrid = state
+    food = foodGrid.asList()
+    if len(food) == 0:
+        return 0
+    elif len(food) == 1:
+        return util.manhattanDistance(food[0], position)
 
-	path = []
-	current = position
-	while len(food) != 0:
-		node = closestFood(current, food, problem)
-		x = food.pop(node)
-		path.append(x)
+    # Point 1
+    p1 = position
+    p1_distance = []
+    for i in range(len(food)):
+        p1_distance.append((util.manhattanDistance(food[i], p1), i))
+
+    p1_distance.sort()
+
+    # Point 2
+    p2 = food[p1_distance[-1][1]]
+    p2_distance = []
+    for i in range(len(food)):
+        p2_distance.append((util.manhattanDistance(food[i], p2), i))
+
+    p2_distance.sort()
+
+    # Point 3
+    p3 = food[common(p1_distance, p2_distance)]
+
+    length = [util.manhattanDistance(p1, p2), util.manhattanDistance(p2, p3), 
+                util.manhattanDistance(p3, p1)]
+    # length.sort()
+
+    # return length[0]+length[1]
+
+    return min( length[0]+length[1],
+                length[2]+length[1],
+                length[2]+length[0],
+            )
 
 
-	#mazeDistance(point1, point2, gameState
-	#print(path, position)
-	#print problem
-	cost = mazeDistance(position, path[0], problem.startingGameState)
-	for x in range(1, len(path)):
-		cost += mazeDistance(path[x-1], path[x], problem.startingGameState)
-	#print(path, cost)	
-	return cost
+def common(distance1, distance2):
+    visited1 = set()
+    visited2 = set()
 
+    for i in range(len(distance1)):
+        if distance1[i][1] in visited2:
+            return distance1[i][1]
+        if distance2[i][1] in visited1:
+            return distance2[i][1]
+        visited1.add(distance1[i][1])
+        visited2.add(distance2[i][1])
+
+    
 
 def closestFood(position, food, problem):
 	if len(food) == 0:
