@@ -74,7 +74,74 @@ class ReflexAgent(Agent):
         newScaredTimes = [ghostState.scaredTimer for ghostState in newGhostStates]
 
         "*** YOUR CODE HERE ***"
-        return successorGameState.getScore()
+        oldFoodScores = distanceToFood(currentGameState)
+        newFoodScores = distanceToFood(successorGameState)
+        oldGhostScores = distanceToGhosts(currentGameState)
+        newGhostScores = distanceToGhosts(successorGameState)
+
+        EAT_FOOD = 10
+        EAT_GHOST = 200
+        TIME_PENALTY = 1
+        EPSILON = 0.001
+
+        # End game
+        if successorGameState.isLose() or newGhostScores[0][0] == 1.0:
+            return -sys.maxint - 1
+        if successorGameState.isWin():
+            return sys.maxint
+
+        # Score starts as difference of states scores
+        score = successorGameState.getScore() - currentGameState.getScore()
+
+        # Not moving penalty
+        if action == Directions.STOP:
+            score -= 1000*TIME_PENALTY
+
+        # Ghost calculation
+        ghostScore = 0.0
+        # If there are ghosts
+        if len(newGhostScores) > 0:
+            closestGhost = newGhostScores[0]
+            oldClosestGhost = oldGhostScores[0]
+
+            # If the closest ghost is scared
+            if newScaredTimes[closestGhost[1]] > 0:
+                # Try to eat
+                if newGhostScores[0][0] == 1.5:
+                        ghostScore += 2.5*EAT_GHOST
+                # If the ghost is closer and reachable 
+                elif oldClosestGhost[0] < closestGhost[0] and closestGhost[0] < newScaredTimes[closestGhost[1]]:
+                    change = 2/(oldClosestGhost[0] - closestGhost[0])
+                    ghostScore += change
+            else:
+
+                if successorGameState.getCapsules() < currentGameState.getCapsules():
+                    cap = EAT_FOOD/closestGhost[0]
+                    ghostScore += cap
+
+                # If the ghost is further away 
+                if oldClosestGhost[0] > closestGhost[0]:
+                    change = 1/(oldClosestGhost[0] - closestGhost[0])
+                    ghostScore += change
+        score += ghostScore
+                
+        # Food calculation
+        closestFood = newFoodScores[0]
+        oldClosestFood = oldFoodScores[0]
+        foodScore = 0
+        # General food distance calculation
+        for food in newFoodScores:
+            foodScore += 1/(food[0] + EPSILON)
+        for food in oldFoodScores:
+            foodScore -= 1/(food[0] + EPSILON)
+        # Min food distance
+        if oldClosestFood[0] > closestFood[0]:
+            foodScore += 5*(oldClosestFood[0] - closestFood[0])
+        #print foodScore
+        score += foodScore
+
+        return score
+
 
 def scoreEvaluationFunction(currentGameState):
     """
@@ -101,10 +168,16 @@ class MultiAgentSearchAgent(Agent):
       is another abstract class.
     """
 
+    _min = -sys.maxint - 1
+    _max = sys.maxint
+
     def __init__(self, evalFn = 'scoreEvaluationFunction', depth = '2'):
         self.index = 0 # Pacman is always agent index 0
         self.evaluationFunction = util.lookup(evalFn, globals())
         self.depth = int(depth)
+
+    def isTerminal(self, gameState, depth):
+        return gameState.isWin() or gameState.isLose() or depth == self.depth*gameState.getNumAgents()
 
 class MinimaxAgent(MultiAgentSearchAgent):
     """
@@ -129,7 +202,54 @@ class MinimaxAgent(MultiAgentSearchAgent):
             Returns the total number of agents in the game
         """
         "*** YOUR CODE HERE ***"
-        util.raiseNotDefined()
+        # Default bests
+        bestMove = None
+        bestValue = self._min
+        # For each current possible action
+        for action in gameState.getLegalActions(self.index):
+            nxtState = gameState.generateSuccessor(self.index, action)
+            # Run the ghosts starting at depth 1
+            # ASSUMES THERE IS AT LEAST 1 GHOST!!!
+            potential = self.DFMiniMax(nxtState, 1, 1)
+            if potential > bestValue:
+                bestValue = potential
+                bestMove = action
+        return bestMove
+
+    def DFMiniMax(self, gameState, agentIndex, depth=0):
+        #print agentIndex, self.index
+        best_move = None
+        #if self.isTerminal(gameState, depth) and agentIndex == self.index:
+        if self.isTerminal(gameState, depth):
+            x = self.evaluationFunction(gameState)
+            #print x
+            return x
+    
+        value = self._max
+        if agentIndex == self.index:
+            value = self._min
+
+        for action in gameState.getLegalActions(agentIndex):
+            nxtState = gameState.generateSuccessor(agentIndex, action)
+
+            # If pacman turn
+            if self.index == agentIndex:
+                nxt_val = self.DFMiniMax(nxtState, agentIndex + 1, depth + 1)
+                if value < nxt_val:
+                    value = nxt_val
+            # Ghost turn
+            else:
+                # If last ghost, next turn is pacmans
+                if agentIndex == gameState.getNumAgents() - 1:
+                    nxt_val = self.DFMiniMax(nxtState, self.index, depth + 1)
+                else:
+                    nxt_val = self.DFMiniMax(nxtState, agentIndex + 1, depth + 1)
+
+                if value > nxt_val:
+                    value = nxt_val
+
+        return value
+
 
 class AlphaBetaAgent(MultiAgentSearchAgent):
     """
@@ -171,3 +291,15 @@ def betterEvaluationFunction(currentGameState):
 # Abbreviation
 better = betterEvaluationFunction
 
+def distanceToFood(gameState):
+    pos = gameState.getPacmanPosition()
+    food = gameState.getFood().asList()
+    scores = [(manhattanDistance(pos, food[i]), i) for i in range(len(food))]
+    return sorted(scores)
+
+def distanceToGhosts(gameState):
+    pos = gameState.getPacmanPosition()
+    ghosts = [ghost.getPosition() for ghost in gameState.getGhostStates()]
+    distances = [()]
+    scores = [(manhattanDistance(pos, ghosts[i]), i) for i in range(len(ghosts))]
+    return sorted(scores)
