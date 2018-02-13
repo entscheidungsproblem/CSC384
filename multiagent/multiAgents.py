@@ -258,10 +258,82 @@ class AlphaBetaAgent(MultiAgentSearchAgent):
 
     def getAction(self, gameState):
         """
-          Returns the minimax action using self.depth and self.evaluationFunction
+          Returns the minimax action from the current gameState using self.depth
+          and self.evaluationFunction.
+
+          Here are some method calls that might be useful when implementing minimax.
+
+          gameState.getLegalActions(agentIndex):
+            Returns a list of legal actions for an agent
+            agentIndex=0 means Pacman, ghosts are >= 1
+
+          gameState.generateSuccessor(agentIndex, action):
+            Returns the successor game state after an agent takes an action
+
+          gameState.getNumAgents():
+            Returns the total number of agents in the game
         """
-        "*** YOUR CODE HERE ***"
-        util.raiseNotDefined()
+
+        # Default bests
+        bestMove = None
+        bestValue = self._min
+
+        alpha = self._min
+        beta = self._max
+        # For each current possible action
+        for action in gameState.getLegalActions(self.index):
+            nxtState = gameState.generateSuccessor(self.index, action)
+            # Run the ghosts starting at depth 1
+            # ASSUMES THERE IS AT LEAST 1 GHOST!!!
+            potential = self.DFMiniMax(nxtState, 1, alpha, beta, 1)
+            #print potential, bestValue, beta
+            if potential > bestValue:
+                bestValue = potential
+                bestMove = action
+            if potential >= beta:
+                return bestMove
+            alpha = max(alpha, potential)
+            #beta = min(beta, bestValue)
+        #print bestMove
+        return bestMove
+
+    def DFMiniMax(self, gameState, agentIndex, alpha, beta, depth=0):
+        #print agentIndex, self.index
+        #if self.isTerminal(gameState, depth) and agentIndex == self.index:
+        if self.isTerminal(gameState, depth):
+            x = self.evaluationFunction(gameState)
+            #print x
+            return x
+    
+        value = self._max
+        if agentIndex == self.index:
+            value = self._min
+
+        for action in gameState.getLegalActions(agentIndex):
+            nxtState = gameState.generateSuccessor(agentIndex, action)
+
+            # If pacman turn
+            if self.index == agentIndex:
+                nxt_val = self.DFMiniMax(nxtState, agentIndex + 1, alpha, beta, depth + 1)
+                if value < nxt_val:
+                    value = nxt_val
+                if value >= beta: return value
+                #if value >= beta: return value
+                alpha = max(alpha, value)
+            # Ghost turn
+            else:
+                # If last ghost, next turn is pacmans
+                if agentIndex == gameState.getNumAgents() - 1:
+                    nxt_val = self.DFMiniMax(nxtState, self.index, alpha, beta, depth + 1)
+                else:
+                    nxt_val = self.DFMiniMax(nxtState, agentIndex + 1, alpha, beta, depth + 1)
+
+                if value > nxt_val:
+                    value = nxt_val
+                if value <= alpha: return value
+                beta = min(beta, value)
+        return value
+
 
 class ExpectimaxAgent(MultiAgentSearchAgent):
     """
