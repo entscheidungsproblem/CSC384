@@ -347,8 +347,55 @@ class ExpectimaxAgent(MultiAgentSearchAgent):
           All ghosts should be modeled as choosing uniformly at random from their
           legal moves.
         """
-        "*** YOUR CODE HERE ***"
-        util.raiseNotDefined()
+        bestMove = None
+        bestValue = self._min
+
+        for action in gameState.getLegalActions(self.index):
+            nxtState = gameState.generateSuccessor(self.index, action)
+            # Run the ghosts starting at depth 1
+            # ASSUMES THERE IS AT LEAST 1 GHOST!!!
+            potential = self.Expectimax(nxtState, 1, 1)
+            if potential > bestValue:
+                bestValue = potential
+                bestMove = action
+        return bestMove
+
+    def Expectimax(self, gameState, agentIndex, depth=0):
+        # print agentIndex, self.index
+        # if self.isTerminal(gameState, depth) and agentIndex == self.index:
+        if self.isTerminal(gameState, depth):
+            x = self.evaluationFunction(gameState)
+            # print x
+            return x
+
+        value = 0
+        if agentIndex == self.index:
+            value = self._min
+
+        for action in gameState.getLegalActions(agentIndex):
+            nxtState = gameState.generateSuccessor(agentIndex, action)
+
+            # If pacman turn eg player == MAX
+            if self.index == agentIndex:
+                nxt_val = self.Expectimax(nxtState, agentIndex + 1, depth + 1)
+                if value < nxt_val:
+                    value = nxt_val
+                # if value >= beta: return value
+            # Ghost turn
+            else:
+                # If last ghost, next turn is pacmans
+                if agentIndex == gameState.getNumAgents() - 1:
+                    nxt_val = self.Expectimax(nxtState, self.index, depth + 1)
+                else:
+                    nxt_val = self.Expectimax(nxtState, agentIndex + 1, depth + 1)
+
+                value = value + (2/len(gameState.getLegalActions(agentIndex))) * nxt_val
+        return value
+
+
+
+
+
 
 def betterEvaluationFunction(currentGameState):
     """
@@ -357,8 +404,43 @@ def betterEvaluationFunction(currentGameState):
 
       DESCRIPTION: <write something here so we know what you did>
     """
-    "*** YOUR CODE HERE ***"
-    util.raiseNotDefined()
+    presentPos = currentGameState.getPacmanPosition()
+    allfood = currentGameState.getFood()
+    ghostStates = currentGameState.getGhostStates()
+    currentScaredTimes = [ghostState.scaredTimer for ghostState in ghostStates]
+
+    REWARD_FOOD = 10.0
+    REWARD_GHOST = 10.0
+    REWARD_SCARED_GHOST = 100.0
+
+    # current score
+    value = currentGameState.getScore()
+
+    if currentGameState.isWin():
+        return sys.maxint
+    if currentGameState.isLose():
+        return -sys.maxint
+
+    # Score for ghost stuff
+    valueGhost = 0
+    for ghost in ghostStates:
+        dist = manhattanDistance(presentPos, ghostStates[0].getPosition())
+        if dist > 0:
+            if ghost.scaredTimer > 0:
+                valueGhost += REWARD_SCARED_GHOST / dist
+            else:
+                valueGhost -= REWARD_GHOST / dist
+        value += valueGhost
+
+    # score for food stuff
+    foodDist = [manhattanDistance(presentPos,food) for food in allfood.asList()]
+    if len(foodDist):
+        value += REWARD_FOOD / min(foodDist)
+
+    return value
+
+
+
 
 # Abbreviation
 better = betterEvaluationFunction
