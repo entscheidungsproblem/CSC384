@@ -402,13 +402,19 @@ def betterEvaluationFunction(currentGameState):
       Your extreme ghost-hunting, pellet-nabbing, food-gobbling, unstoppable
       evaluation function (question 5).
 
-      DESCRIPTION: <write something here so we know what you did>
+      DESCRIPTION: What I did in this question was set up a weighted reward system to tell Pacman what he should
+      prioritize. I then used those weights in different scenarios splitting them up into value modifiers that involve
+      food and ghosts (since eating ghosts and food are the only two ways Pacman can attain points. Once all the
+      modifiers are taken into account return the value for that instance and keep an ongoing count till the stage
+      is complete.
     """
+
+    # We get the position of Pacman, the food on the board and position of the ghosts
     presentPos = currentGameState.getPacmanPosition()
     allfood = currentGameState.getFood()
     ghostStates = currentGameState.getGhostStates()
-    currentScaredTimes = [ghostState.scaredTimer for ghostState in ghostStates]
 
+    # Set up a weighted reward system for Pacman to follow.
     REWARD_FOOD = 10.0
     REWARD_GHOST = 10.0
     REWARD_SCARED_GHOST = 100.0
@@ -416,6 +422,7 @@ def betterEvaluationFunction(currentGameState):
     # current score
     value = currentGameState.getScore()
 
+    # Winning should be the ultimate reward and losing be the ultimate penalty
     if currentGameState.isWin():
         return sys.maxint
     if currentGameState.isLose():
@@ -430,7 +437,7 @@ def betterEvaluationFunction(currentGameState):
                 valueGhost += REWARD_SCARED_GHOST / dist
             else:
                 valueGhost -= REWARD_GHOST / dist
-        value += valueGhost
+    value += valueGhost
 
     # score for food stuff
     foodDist = [manhattanDistance(presentPos,food) for food in allfood.asList()]
