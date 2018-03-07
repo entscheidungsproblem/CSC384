@@ -220,7 +220,18 @@ def GacEnforce(constraints, csp, reasonVar, reasonVal):
     #your implementation for Question 3 goes in this function body
     #you must not change the function parameters
     #ensure that you return one of "OK" or "DWO"
-    util.raiseNotDefined()
+    while len(constraints) != 0:
+        constraint = constraints.pop(0)
+        for var in constraint.scope():
+            for val in var.curDomain():
+                if not constraint.hasSupport(var, val):
+                    var.pruneValue(val,reasonVar, reasonVal)
+                    if var.curDomainSize() == 0:
+                        return "DWO"
+                    for recheck in csp.constraintsOf(var):
+                        if recheck != constraint and not recheck in constraints:
+                            constraints.append(reheck)
+        return "OK"
 
 def GAC(unAssignedVars, csp, allSolutions, trace):
     '''GAC search.
