@@ -278,7 +278,21 @@ class NValuesConstraint(Constraint):
         self._ub = upper_bound
 
     def check(self):
-        util.raiseNotDefined()
+        assignments = []
+        for v in self.scope():
+            if v.isAssigned():
+                assignments.append(v.getValue())
+            else:
+                return True
+
+
+        '''assignments = [v.getValue() for v in self.scope() if v.isAssigned()]
+        if len(assignments) != self.arity():
+          return True
+        '''
+        
+        count = assignments.count(self._required)
+        return count >= self._lb and count <= self._ub
 
     def hasSupport(self, var, val):
         '''check if var=val has an extension to an assignment of the
@@ -288,4 +302,25 @@ class NValuesConstraint(Constraint):
                  a similar approach is applicable here (but of course
                  there are other ways as well)
         '''
+        '''for _tuple in scope:
+          if 
         util.raiseNotDefined()
+        
+        if var not in self.scope():
+            return True
+        '''
+
+        if var not in self.scope():
+            return True
+
+        def valsNotEqual(l):
+            '''tests a list of assignments which are pairs (var,val)
+               to see if they can satisfy the all diff'''
+            vals = [val for (var, val) in l]
+            count = vals.count(self._required)
+            return count >= self._lb and count <= self._ub
+        
+        varsToAssign = self.scope()
+        varsToAssign.remove(var)
+        x = findvals(varsToAssign, [(var, val)], valsNotEqual, valsNotEqual)
+        return x
