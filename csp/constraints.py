@@ -290,7 +290,7 @@ class NValuesConstraint(Constraint):
         if len(assignments) != self.arity():
           return True
         '''
-        
+
         count = assignments.count(self._required)
         return count >= self._lb and count <= self._ub
 
@@ -302,23 +302,15 @@ class NValuesConstraint(Constraint):
                  a similar approach is applicable here (but of course
                  there are other ways as well)
         '''
-        '''for _tuple in scope:
-          if 
-        util.raiseNotDefined()
-        
-        if var not in self.scope():
-            return True
-        '''
 
         if var not in self.scope():
             return True
 
         def valsNotEqual(l):
-            '''tests a list of assignments which are pairs (var,val)
-               to see if they can satisfy the all diff'''
             vals = [val for (var, val) in l]
             count = vals.count(self._required)
-            return count >= self._lb and count <= self._ub
+            return count + self.arity() - len(vals) >= self._lb and count <= self._ub
+            #return count >= self._lb and count <= self._ub
         
         varsToAssign = self.scope()
         varsToAssign.remove(var)
