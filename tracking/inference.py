@@ -382,18 +382,18 @@ class ParticleFilter(InferenceModule):
             tempP = util.Counter()
             for particles in self.particles:
                 manhattanDist = util.manhattanDistance(particles, pacmanPosition)
-                tempP[particles] = emissionModel[manhattanDist]
+                tempP[particles] += emissionModel[manhattanDist]
             self.beliefs = tempP
 
-        if (self.beliefs.totalCount() == 0):
+        if self.beliefs.totalCount() == 0:
             self.initializeUniformly(gameState)
 
         else:
-            self.beliefs.normalize()
 
             for i in range(len(self.particles)):
                 updatedPos = util.sample(self.beliefs)
                 self.particles[i] = updatedPos
+            self.beliefs.normalize()
         "*** END YOUR CODE HERE ***"
 
 
@@ -413,7 +413,7 @@ class ParticleFilter(InferenceModule):
         """
         "*** YOUR CODE HERE ***"
         for i in range(len(self.particles)):
-            particles = self.particles
+            particles = self.particles[i]
             newPosDist = self.getPositionDistribution(self.setGhostPosition(gameState, particles))
             self.particles[i] = util.sample(newPosDist)
         "*** END YOUR CODE HERE ***"
@@ -431,8 +431,6 @@ class ParticleFilter(InferenceModule):
         beliefDist = util.Counter()
         for particles in self.particles:
             beliefDist[particles] = beliefDist[particles] + 1
-
-
         beliefDist.normalize()
         return beliefDist
 
