@@ -193,9 +193,12 @@ class ExactInference(InferenceModule):
         # Special Jail case, if noisy distance is none then there is a 100% chance the ghost is in jail.
         if(noisyDistance == None):
             allPossible[self.getJailPosition()] = 1.0
+
         else:
+
             for p in self.legalPositions:
                 trueDistance = util.manhattanDistance(p, pacmanPosition)
+
                 if emissionModel[trueDistance] > 0:
                     allPossible[p] = emissionModel[trueDistance] * self.beliefs[p]  # Update Beliefs
 
@@ -285,6 +288,7 @@ class ExactInference(InferenceModule):
         # For every old position in legal positions we get the PosDist for the ghosts (to account for time passing)
         for oldPosition in self.legalPositions:
             newPostDist = self.getPositionDistribution(self.setGhostPosition(gameState, oldPosition))
+
             # Update every belief in the Counter so pacman can learn all new information
             for i in newPostDist:
                 updatedBelief[i] += self.beliefs[oldPosition]*newPostDist[i]
@@ -383,9 +387,11 @@ class ParticleFilter(InferenceModule):
             # If not, store the particles in a temp and update the beliefs to find the ghost
         else:
             tempP = util.Counter()
+
             for particles in self.particles:
                 manhattanDist = util.manhattanDistance(particles, pacmanPosition)
                 tempP[particles] += emissionModel[manhattanDist]
+
             self.beliefs = tempP
 
         if self.beliefs.totalCount() == 0:
@@ -396,6 +402,7 @@ class ParticleFilter(InferenceModule):
             for i in range(len(self.particles)):
                 updatedPos = util.sample(self.beliefs)
                 self.particles[i] = updatedPos
+
             self.beliefs.normalize()
         "*** END YOUR CODE HERE ***"
 
@@ -512,12 +519,11 @@ class JointParticleFilter:
 
         # Declare the list containers and legal moves
         self.particles = []
-        updatedParticles = []
         particles = self.numParticles
         legal = self.legalPositions
 
         # Create the list of permutations
-        perm = list(itertools.product(legal, repeat = self.numGhosts))
+        perm = list(itertools.product(legal, repeat=self.numGhosts))
 
         # Shuffle the permutations
         random.shuffle(perm)
@@ -588,8 +594,10 @@ class JointParticleFilter:
         """
         pacmanPosition = gameState.getPacmanPosition()
         noisyDistances = gameState.getNoisyGhostDistances()
+
         if len(noisyDistances) < self.numGhosts:
             return
+
         emissionModels = [busters.getObservationDistribution(dist) for dist in noisyDistances]
 
         "*** YOUR CODE HERE ***"
@@ -600,13 +608,16 @@ class JointParticleFilter:
                 jail.append(i)
 
         updatedParticles = util.Counter()
+
         for particles in self.particles:
+
             for ghost in jail:
                 particles = self.getParticleWithGhostInJail(particles,ghost)
 
             prob = 1
 
             for i in range(self.numGhosts):
+
                 if i not in jail:
                     emissionModel = emissionModels[i]
                     manhattanDistance = util.manhattanDistance(particles[i], pacmanPosition)
@@ -622,6 +633,7 @@ class JointParticleFilter:
 
         else:
             self.beliefs.normalize()
+
             for i in range(len(self.particles)):
                 updatedPos = util.sample(self.beliefs)
                 self.particles[i] = updatedPos

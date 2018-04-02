@@ -173,7 +173,9 @@ class GreedyBustersAgent(BustersAgent):
         # This for loop checks all the ghosts and compares. It returns the closest ghost to pacman with it's position
         for i in livingGhostPositionDistributions:
             temp = 0
+
             for position in i.keys():
+
                 if i[position] > temp:
                     temp = i[position]
                     nearestGhostDist = self.distancer.getDistance(pacmanPosition, position)
@@ -181,6 +183,7 @@ class GreedyBustersAgent(BustersAgent):
 
         # This for loop checks all the child moves and using the nearestGhost stats it returns the best course of action
         idealMove = None
+
         for move in legal:
             childPos = Actions.getSuccessor(pacmanPosition,move)
             childDist = self.distancer.getDistance(nearestGhostPos, childPos)
