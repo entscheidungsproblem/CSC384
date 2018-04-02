@@ -280,7 +280,6 @@ class ExactInference(InferenceModule):
         """
         "*** YOUR CODE HERE ***"
         # Declare the new Position distribution and the updatedBelief for pacman
-        newPostDist = util.Counter()
         updatedBelief = util.Counter()
 
         # For every old position in legal positions we get the PosDist for the ghosts (to account for time passing)
@@ -290,11 +289,10 @@ class ExactInference(InferenceModule):
             for i in newPostDist:
                 updatedBelief[i] += self.beliefs[oldPosition]*newPostDist[i]
 
-
         updatedBelief.normalize()
         self.beliefs = updatedBelief
-        "*** END YOUR CODE HERE ***"
 
+        "*** END YOUR CODE HERE ***"
     def getBeliefDistribution(self):
         return self.beliefs
 
@@ -328,10 +326,13 @@ class ParticleFilter(InferenceModule):
         weight with each position) is incorrect and may produce errors.
         """
         "*** YOUR CODE HERE ***"
+
+        # Initialize the list of particles and set of legal moves
         particles = self.numParticles
         updatedParticles = []
         legal = self.legalPositions
 
+        # While the number of particles is larger than the number of legal moves, update the numbers
         while particles > len(legal):
             updatedParticles += legal
             particles -= len(legal)
@@ -372,12 +373,14 @@ class ParticleFilter(InferenceModule):
         emissionModel = busters.getObservationDistribution(noisyDistance)
         pacmanPosition = gameState.getPacmanPosition()
         "*** YOUR CODE HERE ***"
-
+        # Store the counter for the Jail
         jail = util.Counter()
 
+        # Just like in Q1, we check if the ghost is in jail (probability of 1.0)
         if(noisyDistance == None):
             jail[self.getJailPosition()] = 1.0
             self.beliefs = jail
+            # If not, store the particles in a temp and update the beliefs to find the ghost
         else:
             tempP = util.Counter()
             for particles in self.particles:
